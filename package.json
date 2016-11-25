@@ -2,11 +2,8 @@
   "name": "angular-quickstart",
   "version": "1.0.0",
   "scripts": {
-    "clean": "gulp clean",
-    "compile": "gulp compile",
     "build": "gulp build",
-    "start": "concurrent --kill-others \"gulp watch\" \"lite-server\"",
-    "postinstall": "typings install"
+    "start": "gulp watch"
   },
   "licenses": [
     {
