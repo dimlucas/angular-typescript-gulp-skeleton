@@ -34,7 +34,9 @@ gulp.task('serve', () => {
 gulp.task('build-ts', () => {
     var tsProject = tsc.createProject('tsconfig.json');
     gulp.src(tsFiles)
-        .pipe(tsProject())
+        .pipe(sourcemaps.init())
+            .pipe(tsProject())
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest(outputDir));
 });
 
