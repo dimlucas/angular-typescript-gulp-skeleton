@@ -22,7 +22,7 @@ gulp.task('clean', () => {
 });
 
 //Initialize Browser Sync
-gulp.task('init-server', () => {
+gulp.task('serve', () => {
     browserSync.init({
         server: {
             baseDir: './'
@@ -53,7 +53,9 @@ gulp.task('build-css', () => {
         .pipe(gulp.dest(cssOutput));
 });
 
-gulp.task('watch', ['build-ts', 'build-html', 'build-css', 'init-server'] , () => {
+gulp.task('build', ['build-ts', 'build-html', 'build-css']);
+
+gulp.task('watch', ['build-ts', 'build-html', 'build-css', 'serve'] , () => {
     gulp.watch(tsFiles, ['build-ts', browserSync.reload]);
 
     gulp.watch(htmlFiles, ['build-html', browserSync.reload]);
